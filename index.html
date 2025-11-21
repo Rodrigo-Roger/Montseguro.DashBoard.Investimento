@@ -1,141 +1,253 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Consórcio Servopa</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="dashboard-container">
+      <header class="header">
+        <div class="logo">SIMULADOR DE CONSÓRCIO SERVOPA</div>
+      </header>
 
-        <header class="header">
-            <div class="logo">SIMULADOR DE CONSÓRCIO SERVOPA</div>
-        </header>
+      <section class="card simulador-lances">
+        <h2 class="card-title">Dados do Plano</h2>
+        <div class="grid-container">
+          <div class="grid-item label">Crédito contratado</div>
+          <div class="grid-item value-label">R$</div>
+          <div class="grid-item value-input">
+            <input
+              type="text"
+              id="credito"
+              value="1.000.000,00"
+              class="editable-input"
+            />
+          </div>
+          <div class="grid-item comment">Indicar Crédito</div>
 
-        <section class="card simulador-lances">
-            <h2 class="card-title">Dados do Plano</h2>
-            <div class="grid-container">
-                <div class="grid-item label">Crédito (Valor do Bem)</div>
-                <div class="grid-item value-label">R$</div>
-                <div class="grid-item value-input">
-                    <input type="text" id="credito" value="1.000.000,00" class="editable-input">
-                </div>
-                <div class="grid-item comment">Indicar Crédito</div>
+          <div class="grid-item label">Prazo Total (Meses)</div>
+          <div class="grid-item empty"></div>
+          <div class="grid-item value-input">
+            <input
+              type="number"
+              id="qtd-meses"
+              value="72"
+              class="editable-input"
+            />
+          </div>
+          <div class="grid-item comment">Total de parcelas do plano</div>
 
-                <div class="grid-item label">Prazo Total (Meses)</div>
-                <div class="grid-item empty"></div>
-                <div class="grid-item value-input">
-                    <input type="number" id="qtd-meses" value="72" class="editable-input">
-                </div>
-                <div class="grid-item comment">Total de parcelas do plano</div>
+          <div class="grid-item label">Taxa Adm + F. Reserva</div>
+          <div class="grid-item empty"></div>
+          <div class="grid-item value-input">
+            <input
+              type="text"
+              id="taxa-adm"
+              value="17%"
+              class="editable-input"
+            />
+          </div>
+          <div class="grid-item comment">Percentual total sobre o Crédito</div>
 
-                <div class="grid-item label">Taxa Adm + F. Reserva</div>
-                <div class="grid-item empty"></div>
-                <div class="grid-item value-input">
-                    <input type="text" id="taxa-adm" value="17%" class="editable-input">
-                </div>
-                <div class="grid-item comment">Percentual total sobre o Crédito</div>
-                
-                <div class="grid-item label">TOTAL DO CONTRATO</div>
-                <div class="grid-item value-label">R$</div>
-                <div class="grid-item value-input">
-                    <input type="text" id="saldo-devedor-inicial" value="1.170.000,00" class="editable-input read-only-style" readonly>
-                </div>
-                <div class="grid-item comment">Crédito + Taxa Adm</div>
+          <div class="grid-item label">TOTAL DO CONTRATO</div>
+          <div class="grid-item value-label">R$</div>
+          <div class="grid-item value-input">
+            <input
+              type="text"
+              id="saldo-devedor-inicial"
+              value="1.170.000,00"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </div>
+          <div class="grid-item comment">Crédito + Taxa Adm</div>
 
-                <div class="grid-item label">Parcelas Pagas (Simulação)</div>
-                <div class="grid-item empty"></div>
-                <div class="grid-item value-input">
-                    <input type="number" id="qtd-parc-pagas" value="12" class="editable-input">
-                </div>
-                <div class="grid-item comment">Qtd. de parcelas pagas até o lance</div>
+          <div class="grid-item label">Parcelas Pagas (Simulação)</div>
+          <div class="grid-item empty"></div>
+          <div class="grid-item value-input">
+            <input
+              type="number"
+              id="qtd-parc-pagas"
+              value="12"
+              class="editable-input"
+            />
+          </div>
+          <div class="grid-item comment">
+            Qtd. de parcelas pagas até o lance
+          </div>
 
-                <div class="grid-item label">Parcela Base Mensal (S/ Flex)</div>
-                <div class="grid-item value-label">R$</div>
-                <div class="grid-item value-input">
-                    <input type="text" id="valor-parcela-base" value="R$ 16.250,00" class="editable-input read-only-style" readonly>
-                </div>
-                <div class="grid-item comment">Base: (Total Contrato / Prazo Total)</div>
+          <div class="grid-item label">Parcela Base Mensal (S/ Flex)</div>
+          <div class="grid-item value-label">R$</div>
+          <div class="grid-item value-input">
+            <input
+              type="text"
+              id="valor-parcela-base"
+              value="R$ 16.250,00"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </div>
+          <div class="grid-item comment">
+            Base: (Total Contrato / Prazo Total)
+          </div>
 
-                <div class="grid-item label">Redutor (Flex)</div>
-                <div class="grid-item value-input-small">
-                    <input type="number" id="redutor-opc" value="20" class="editable-input small-input-text">
-                </div>
-                <div class="grid-item value-input-large">
-                    <input type="text" id="redutor-label" value="20%" class="editable-input small-input-text" readonly>
-                </div>
-                <div class="grid-item comment">Percentual de redução pré-contemplação</div>
+          <div class="grid-item label">Redutor (Flex)</div>
+          <div class="grid-item value-input-small">
+            <input
+              type="number"
+              id="redutor-opc"
+              value="20"
+              class="editable-input small-input-text"
+            />
+          </div>
+          <div class="grid-item value-input-large">
+            <input
+              type="text"
+              id="redutor-label"
+              value="20%"
+              class="editable-input small-input-text"
+              readonly
+            />
+          </div>
+          <div class="grid-item comment">
+            Percentual de redução pré-contemplação
+          </div>
+        </div>
+      </section>
 
-            </div>
-        </section>
+      <section class="card calculo-lance">
+        <h2 class="card-title">Cálculo de Lance Ofertado</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Tipo de Lance</th>
+              <th>% Sobre Crédito</th>
+              <th>R$ Valor Ofertado</th>
+              <th>Opções</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Lance Ofertado (Total)</td>
+              <td class="data-cell input-cell">
+                <input
+                  type="text"
+                  id="perc-lance-ofertado"
+                  value="15.60"
+                  class="editable-input table-input"
+                />
+              </td>
+              <td class="data-cell input-cell">
+                <input
+                  type="text"
+                  id="valor-lance-ofertado"
+                  value="R$ 156.000,00"
+                  class="editable-input table-input read-only-style"
+                  readonly
+                />
+              </td>
+              <td class="data-cell comment-cell">Lance Livre</td>
+            </tr>
+            <tr>
+              <td class="label">Diluir Lance?</td>
+              <td class="data-cell input-cell">
+                <input
+                  type="number"
+                  id="diluir-lance"
+                  value="0"
+                  class="editable-input table-input"
+                />
+              </td>
+              <td class="data-cell value-cell" id="diluir-lance-label">
+                Não (Abate Prazo)
+              </td>
+              <td class="data-cell comment-cell">
+                1 para Sim (Reduz Parcela), 0 para Não (Reduz Prazo)
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Lance Embutido (%)</td>
+              <td class="data-cell input-cell">
+                <input
+                  type="text"
+                  id="perc-lance-embutido"
+                  value="0"
+                  class="editable-input table-input"
+                />
+              </td>
+              <td class="data-cell input-cell" id="valor-lance-embutido">
+                <input
+                  type="text"
+                  value="R$ 0,00"
+                  class="editable-input table-input read-only-style"
+                  readonly
+                />
+              </td>
+              <td class="data-cell comment-cell">
+                Uso de parte do Crédito como Lance
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-        <section class="card calculo-lance">
-            <h2 class="card-title">Cálculo de Lance Ofertado</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Tipo de Lance</th>
-                        <th>% Sobre Crédito</th>
-                        <th>R$ Valor Ofertado</th>
-                        <th>Opções</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="label">Lance Ofertado (Total)</td>
-                        <td class="data-cell input-cell"><input type="text" id="perc-lance-ofertado" value="15.60" class="editable-input table-input"></td>
-                        <td class="data-cell input-cell"><input type="text" id="valor-lance-ofertado" value="R$ 156.000,00" class="editable-input table-input read-only-style" readonly></td>
-                        <td class="data-cell comment-cell">Lance Livre</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Diluir Lance?</td>
-                        <td class="data-cell input-cell"><input type="number" id="diluir-lance" value="0" class="editable-input table-input"></td>
-                        <td class="data-cell value-cell" id="diluir-lance-label">Não (Abate Prazo)</td>
-                        <td class="data-cell comment-cell">1 para Sim (Reduz Parcela), 0 para Não (Reduz Prazo)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Lance Embutido (%)</td>
-                        <td class="data-cell input-cell"><input type="text" value="0" class="editable-input table-input"></td>
-                        <td class="data-cell input-cell"><input type="text" value="R$ 0,00" class="editable-input table-input read-only-style" readonly></td>
-                        <td class="data-cell comment-cell">Uso de parte do Crédito como Lance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="card lance-contemplacao">
-            <h2 class="card-title">Resultados Após Contemplação</h2>
-            <div class="info-line">
-                <span class="info-label">Novo Saldo Devedor</span>
-                <span class="info-value" id="saldo-devedor-final">R$ 1.014.000,00</span>
-            </div>
-            <div class="info-line">
-                <span class="info-label">Parcelas Restantes no Plano</span>
-                <span class="info-value yellow-bg">
-                    <input type="text" id="parc-a-pagar-qtd" value="60" class="editable-input read-only-style" readonly>
-                </span>
-                <span class="info-value-rs">
-                    <input type="text" id="parc-a-pagar-valor" value="R$ 17.305,60" class="editable-input read-only-style" readonly>
-                </span>
-            </div>
-            <div class="info-line">
-                <span class="info-label">Parcelas Abatidas pelo Lance</span>
-                <span class="info-value">
-                    <input type="text" id="qtd-parc-abatidas" value="9.60" class="editable-input read-only-style" readonly>
-                </span>
-            </div>
-            <div class="info-line">
-                <span class="info-label">Crédito Disponível</span>
-                <span class="info-value full-width yellow-bg">
-                    <input type="text" value="R$ 1.000.000,00" class="editable-input read-only-style" readonly>
-                </span>
-            </div>
-        </section>
-
+      <section class="card lance-contemplacao">
+        <h2 class="card-title">Resultados Após Contemplação</h2>
+        <div class="info-line">
+          <span class="info-label">Novo Saldo Devedor</span>
+          <span class="info-value" id="saldo-devedor-final"
+            >R$ 1.014.000,00</span
+          >
+        </div>
+        <div class="info-line">
+          <span class="info-label">Parcelas Restantes no Plano</span>
+          <span class="info-value yellow-bg">
+            <input
+              type="text"
+              id="parc-a-pagar-qtd"
+              value="60"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </span>
+          <span class="info-value-rs">
+            <input
+              type="text"
+              id="parc-a-pagar-valor"
+              value="R$ 17.305,60"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Parcelas Abatidas pelo Lance</span>
+          <span class="info-value">
+            <input
+              type="text"
+              id="qtd-parc-abatidas"
+              value="9.60"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Crédito Disponível</span>
+          <span class="info-value full-width yellow-bg">
+            <input
+              type="text"
+              value="R$ 1.000.000,00"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </span>
+        </div>
+      </section>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
