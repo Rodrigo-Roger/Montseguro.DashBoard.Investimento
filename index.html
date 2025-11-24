@@ -78,21 +78,6 @@
             Qtd. de parcelas pagas até o lance
           </div>
 
-          <div class="grid-item label">Parcela Base Mensal (S/ Flex)</div>
-          <div class="grid-item value-label">R$</div>
-          <div class="grid-item value-input">
-            <input
-              type="text"
-              id="valor-parcela-base"
-              value="R$ 16.250,00"
-              class="editable-input read-only-style"
-              readonly
-            />
-          </div>
-          <div class="grid-item comment">
-            Base: (Total Contrato / Prazo Total)
-          </div>
-
           <div class="grid-item label">Redutor (Flex)</div>
           <div class="grid-item value-input-small">
             <input
@@ -113,6 +98,31 @@
           </div>
           <div class="grid-item comment">
             Percentual de redução pré-contemplação
+          </div>
+
+          <div class="grid-item label">Seguro Ativo?</div>
+          <div class="grid-item empty"></div>
+          <div class="grid-item value-input">
+            <select id="seguro-ativo" class="editable-input">
+              <option value="1" selected>Sim</option>
+              <option value="0">Não</option>
+            </select>
+          </div>
+          <div class="grid-item comment">Incluir ou não o seguro mensal</div>
+
+          <div class="grid-item label">Parcela Base Mensal (S/ Flex)</div>
+          <div class="grid-item value-label">R$</div>
+          <div class="grid-item value-input">
+            <input
+              type="text"
+              id="valor-parcela-base"
+              value="R$ 16.250,00"
+              class="editable-input read-only-style"
+              readonly
+            />
+          </div>
+          <div class="grid-item comment">
+            Base: (Total Contrato / Prazo Total)
           </div>
         </div>
       </section>
